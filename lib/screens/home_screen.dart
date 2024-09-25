@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 // import 'package:lab1/screens/area_triangulo_screen.dart';
 // import 'package:lab1/screens/perimetro_triangulo_screen.dart';
 // import 'package:lab1/screens/area_pentagono_screen.dart';
-// import 'package:lab1/screens/perimetro_pentagono_screen.dart';
+import 'package:lab1/screens/per_penta_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -68,29 +68,29 @@ class _HomeScreenState extends State<HomeScreen> {
               children: <Widget>[
 
               // Image 1
-              // GestureDetector(
-              //   onTap: () {
-              //     Navigator.push(
-              //       context,
-              //       MaterialPageRoute(builder: (context) => const CurrencyConv()),
-              //     );
-              //   },
-              //   child: const Column(
-              //     children: [
-              //       Expanded(
-              //         child: Image(
-              //           height: 200,
-              //           width: 200,
-              //           image: AssetImage('assets/images/currency.png')
-              //         ),
-              //       ),
-              //       Padding(
-              //         padding: EdgeInsets.only(top: 8.0),
-              //         child: Text('Conversor de divisas'),
-              //       ),
-              //     ],
-              //   ),
-              // ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const PentagonPerimeter()),
+                  );
+                },
+                child: const Column(
+                  children: [
+                    Expanded(
+                      child: Image(
+                        height: 200,
+                        width: 200,
+                        image: AssetImage('assets/images/peri_pentagono.png')
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: 8.0),
+                      child: Text('Perímetro de un pentágono'),
+                    ),
+                  ],
+                ),
+              ),
               
               // // Image 2
               // GestureDetector(
