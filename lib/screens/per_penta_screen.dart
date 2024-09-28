@@ -1,50 +1,23 @@
 import 'package:flutter/material.dart';
 
-class PerPentagScreen extends StatefulWidget {
-  const PerPentagScreen({super.key});
+class PentagonPerimeter extends StatefulWidget {
+
+  const PentagonPerimeter({super.key});
 
   @override
-  State<PerPentagScreen> createState() => _PerPentagScreenState();
+  State<PentagonPerimeter> createState() => _PentagonPerimeterState();
+
 }
 
-class _PerPentagScreenState extends State<PerPentagScreen> {
-  final _valorConvertir = TextEditingController(); // Entrada del usuario
+class _PentagonPerimeterState extends State<PentagonPerimeter> {
+  final TextEditingController _sideController = TextEditingController();
+  double _perimeter = 0;
 
-  double _valorConvertido = 0.0;
-
-  // Monedas
-  String _convertirDe = 'USD';
-  String _convertirA = 'COP';
-
-  // Tasas de cambio simples (estas tasas son aproximadas y no en tiempo real)
-  final Map<String, double> _TasasCambio = {
-    'USD': 1.0, // Tasa de referencia para USD
-    'EUR': 0.91, // 1 USD = 0.91 EUR
-    'COP': 4179.62, // 1 USD = 4179.62 COP
-  };
-
-  // Función para convertir entre monedas
-  void _convertCurrency() {
-    double valor = double.tryParse(_valorConvertir.text) ?? 0.0;
-    double tasa1 = _TasasCambio[_convertirDe]!;
-    double tasa2 = _TasasCambio[_convertirA]!;
+  void _calculatePerimeter() {
+    double side = double.tryParse(_sideController.text) ?? 0;
     setState(() {
-      _valorConvertido = (valor / tasa1) * tasa2;
+      _perimeter = 5 * side;
     });
-  }
-
-  // Función para ajustar el número de decimales según sea necesario
-  String _ajustarDecimales(double valor) {
-    String valorStr =
-        valor.toStringAsFixed(2); // Convertir inicialmente a 2 decimales
-    int precision = 2;
-
-    // Para valores de monedas pequeñas aumentamosla precisión hasta encontrar 2 cifras significativas
-    while (valorStr == '0.00' && precision < 10) {
-      precision++;
-      valorStr = valor.toStringAsFixed(precision + 2);
-    }
-    return valorStr;
   }
 
   @override
@@ -52,108 +25,56 @@ class _PerPentagScreenState extends State<PerPentagScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor:
-            const Color.fromARGB(200, 236, 5, 156), //Color de la Barra
+            const Color.fromARGB(199, 236, 194, 5), //Color de la Barra
         title: const Text(
-          'Conversor de monedas',
+          "Perímetro Pentágono",
           style: TextStyle(
-            color: Colors.white,
             fontFamily: 'Roboto',
             fontWeight: FontWeight.bold,
             fontSize: 24.0,
             letterSpacing: 1.2,
           ),
         ),
-        centerTitle: true,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context); // This navigates back to the previous screen
+          },
+        ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0), // Espaciado para toda la página
-        child: Center(
-          child: SingleChildScrollView(
-            // Para poder realizar scroll
-            child: Column(
-              // Columna
-              mainAxisAlignment:
-                  MainAxisAlignment.center, // Centrando el contenido
-              children: [
-                Row(
-                  // Fila para seleccionar la moneda a convertir y el valor
-                  children: [
-                    Expanded(
-                      // Dropdown para seleccionar la moneda de origen
-                      child: DropdownButton<String>(
-                        value: _convertirDe,
-                        items: _TasasCambio.keys.map((String value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Text(value),
-                          );
-                        }).toList(),
-                        onChanged: (String? newValue) {
-                          setState(() {
-                            _convertirDe = newValue!;
-                          });
-                        },
-                      ),
-                    ),
-                    const SizedBox(
-                        width:
-                            16.0), // Espaciado entre el Dropdown y el TextField
-                    Expanded(
-                      child: TextField(
-                        controller: _valorConvertir,
-                        keyboardType: TextInputType.number,
-                        decoration: const InputDecoration(
-                          labelText: 'Cantidad a convertir',
-                          border: OutlineInputBorder(),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 40.0), // Espaciado
-
-                //Boton para realizar la conversión de monedas
-                ElevatedButton(
-                  onPressed: _convertCurrency,
-                  child: const Text('Convertir'),
-                ),
-                const SizedBox(height: 40.0), // Espaciado
-
-                Row(
-                  // Fila para mostrar el resultado de la conversión
-                  children: [
-                    Expanded(
-                      // Dropdown para seleccionar la moneda de destino
-                      child: DropdownButton<String>(
-                        value: _convertirA,
-                        items: _TasasCambio.keys.map((String value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Text(value),
-                          );
-                        }).toList(),
-                        onChanged: (String? newValue) {
-                          setState(() {
-                            _convertirA = newValue!;
-                          });
-                        },
-                      ),
-                    ),
-
-                    const SizedBox(width: 16.0), //Espaciado
-
-                    // Mostrar el resultado de la conversión
-                    Text(
-                      '${_ajustarDecimales(_valorConvertido)} $_convertirA',
-                      style: const TextStyle(fontSize: 18.0),
-                    ),
-                  ],
-                ),
-              ],
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: <Widget>[
+            TextField(
+              controller: _sideController,
+              keyboardType: TextInputType.number,
+              decoration: const InputDecoration(
+                labelText: "Ingrese la longitud del lado",
+                border: OutlineInputBorder(),
+              ),
             ),
-          ),
+            
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: _calculatePerimeter,
+              child: const Text("Calcular Perímetro"),
+            ),
+            
+            const SizedBox(height: 16),
+            Text(
+              "Perímetro: $_perimeter",
+              style: const TextStyle(fontSize: 24),
+            ),
+          ],
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _sideController.dispose();
+    super.dispose();
   }
 }
