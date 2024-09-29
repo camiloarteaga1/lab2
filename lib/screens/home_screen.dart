@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:lab1/screens/area_circulo_screen.dart';
+import 'package:lab1/screens/area_circulo_screen.dart';
 // import 'package:lab1/screens/perimetro_circulo_screen.dart';
 import 'package:lab1/screens/area_cuadrado_screen.dart';
 // import 'package:lab1/screens/perimetro_cuadrado_screen.dart';
@@ -117,30 +117,30 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
 
-              // // Image 3
-              // GestureDetector(
-              //   onTap: () {
-              //     Navigator.push(
-              //       context,
-              //       MaterialPageRoute(builder: (context) => const GradesScreen()),
-              //     );
-              //   },
-              //   child: const Column(
-              //     children: [
-              //       Expanded(
-              //         child: Image(
-              //           height: 200,
-              //           width: 200,
-              //           image: AssetImage('assets/images/grades.png')
-              //         ),
-              //       ),
-              //       Padding(
-              //         padding: EdgeInsets.only(top: 8.0),
-              //         child: Text('Calculadora de nota final'),
-              //       ),
-              //     ],
-              //   ),
-              // ),
+              // Image 3
+               GestureDetector(
+                 onTap: () {
+                   Navigator.push(
+                     context,
+                     MaterialPageRoute(builder: (context) => const AreaCirculoPages()),
+                   );
+                 },
+                 child: const Column(
+                   children: [
+                     Expanded(
+                       child: Image(
+                         height: 200,
+                         width: 200,
+                         image: AssetImage('assets/images/area_circulo.png')
+                       ),
+                     ),
+                     Padding(
+                       padding: EdgeInsets.only(top: 8.0),
+                       child: Text('Área del círculo'),
+                     ),
+                   ],
+                 ),
+               ),
               
               // // Image 4
               // GestureDetector(
