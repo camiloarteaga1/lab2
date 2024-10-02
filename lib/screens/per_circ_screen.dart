@@ -4,10 +4,17 @@ import 'package:flutter/material.dart';
 
 class PerCircScreen extends StatefulWidget {
 
+
   const PerCircScreen({super.key});
 
   @override
   State<PerCircScreen> createState() => _PerCircScreenState();
+======
+  const PerCircScreen({super.key});
+  
+  @override
+  State<PerCircScreen> createState() => _PerCircScreenState();
+
 }
 
 class _PerCircScreenState extends State<PerCircScreen> {
@@ -25,7 +32,11 @@ class _PerCircScreenState extends State<PerCircScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+
         title: const Text('Calculadora de Perímetro de un Círculo'),
+=======
+        title: const Text('Calculadora de Perímetro de un Círculo'),
+
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -35,11 +46,16 @@ class _PerCircScreenState extends State<PerCircScreen> {
             TextField(
               controller: _controller,
               keyboardType: TextInputType.number,
+
               decoration: const InputDecoration(
+=======
+              decoration: const InputDecoration(
+
                 labelText: 'Ingresa el radio del círculo en cm',
                 border: OutlineInputBorder(),
               ),
             ),
+
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: _calcularPerimetro,
@@ -49,6 +65,17 @@ class _PerCircScreenState extends State<PerCircScreen> {
             Text(
               'El perímetro es: $_resultado',
               style: const TextStyle(fontSize: 24),
+=======
+           const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: _calcularPerimetro,
+              child: const Text('Calcular Perímetro'),
+            ),
+            const SizedBox(height: 20),
+            const Text(
+              'El perímetro es: $_resultado',
+              style: TextStyle(fontSize: 24),
+
             ),
           ],
         ),
