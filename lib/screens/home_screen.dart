@@ -165,6 +165,29 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                 ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const PerimetroTrianguloScreen()),
+                    );
+                  },
+                  child: const Column(
+                    children: [
+                      Expanded(
+                        child: Image(
+                            height: 200,
+                            width: 200,
+                            image: AssetImage('assets/images/pertri.png')
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 8.0),
+                        child: Text('Perimetro del triángulo'),
+                      ),
+                    ],
+                  ),
+                ),
               // // Image 4
               // GestureDetector(
               //   onTap: () {
