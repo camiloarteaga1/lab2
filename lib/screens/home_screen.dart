@@ -169,6 +169,29 @@ class _HomeScreenState extends State<HomeScreen> {
                   onTap: () {
                     Navigator.push(
                       context,
+                      MaterialPageRoute(builder: (context) => PerCuadradoScreen()),
+                    );
+                  },
+                  child: const Column(
+                    children: [
+                      Expanded(
+                        child: Image(
+                            height: 200,
+                            width: 200,
+                            image: AssetImage('assets/images/peri_cuadrado.png')
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 8.0),
+                        child: Text('Perímetro del ccuadrado'),
+                      ),
+                    ],
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
                       MaterialPageRoute(builder: (context) => const PerimetroTrianguloScreen()),
                     );
                   },
