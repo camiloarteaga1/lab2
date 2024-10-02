@@ -8,6 +8,7 @@ import 'package:lab1/screens/per_circ_screen.dart';
 // import 'package:lab1/screens/perimetro_triangulo_screen.dart';
 // import 'package:lab1/screens/area_pentagono_screen.dart';
 import 'package:lab1/screens/per_penta_screen.dart';
+import 'package:lab1/screens/perimetro_triangulo_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -167,29 +168,53 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               // // Image 4
-              // GestureDetector(
-              //   onTap: () {
-              //     Navigator.push(
-              //       context,
-              //       MaterialPageRoute(builder: (context) => const ResistorScreen()),
-              //     );
-              //   },
-              //   child: const Column(
-              //     children: [
-              //       Expanded(
-              //         child: Image(
-              //           height: 200,
-              //           width: 200,
-              //           image: AssetImage('assets/images/resistor.png')
-              //         ),
-              //       ),
-              //       Padding(
-              //         padding: EdgeInsets.only(top: 8.0),
-              //         child: Text('Calculadora de resistencias'),
-              //       ),
-              //     ],
-              //   ),
-              // ),
+               GestureDetector(
+                 onTap: () {
+                   Navigator.push(
+                     context,
+                     MaterialPageRoute(builder: (context) => const PerimetroTrianguloScreen()),
+                   );
+                 },
+                 child: const Column(
+                   children: [
+                     Expanded(
+                       child: Image(
+                         height: 200,
+                         width: 200,
+                         image: AssetImage('assets/images/pertri.png')
+                       ),
+                     ),
+                     Padding(
+                       padding: EdgeInsets.only(top: 8.0),
+                       child: Text('Perimetro del triángulo'),
+                     ),
+                   ],
+                ),
+               ),
+                // // Image 5
+                // GestureDetector(
+                //   onTap: () {
+                //     Navigator.push(
+                //       context,
+                //       MaterialPageRoute(builder: (context) => const ResistorScreen()),
+                //     );
+                //   },
+                //   child: const Column(
+                //     children: [
+                //       Expanded(
+                //         child: Image(
+                //           height: 200,
+                //           width: 200,
+                //           image: AssetImage('assets/images/resistor.png')
+                //         ),
+                //       ),
+                //       Padding(
+                //         padding: EdgeInsets.only(top: 8.0),
+                //         child: Text('Calculadora de resistencias'),
+                //       ),
+                //     ],
+                //   ),
+                // ),
               ],
             ),
           ),
