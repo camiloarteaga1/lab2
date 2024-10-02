@@ -33,11 +33,16 @@ class _PerimetroTrianguloScreenState extends State<PerimetroTrianguloScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Perímetro del Triángulo'),
-        // Color amarillo más oscuro para el AppBar
-        backgroundColor: Colors.yellow[700],
+        // Flecha para volver hacia atrás
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context); // Acción para volver a la pantalla anterior
+          },
+        ),
+        backgroundColor: Colors.yellow[700], // Color amarillo más oscuro para el AppBar
       ),
-      // Color de fondo amarillo claro
-      backgroundColor: Colors.yellow[100],
+      backgroundColor: Colors.yellow[100], // Color de fondo amarillo claro
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
