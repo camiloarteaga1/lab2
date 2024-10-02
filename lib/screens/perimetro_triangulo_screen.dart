@@ -43,7 +43,7 @@ class _PerimetroTrianguloScreenState extends State<PerimetroTrianguloScreen> {
         backgroundColor: Colors.yellow[700], // Color amarillo más oscuro para el AppBar
       ),
       backgroundColor: Colors.yellow[100], // Color de fondo amarillo claro
-      body: Padding(
+      body: Padding( // Espaciado del contenido
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
