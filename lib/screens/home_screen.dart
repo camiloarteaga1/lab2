@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lab1/screens/area_circulo_screen.dart';
 // import 'package:lab1/screens/perimetro_circulo_screen.dart';
 import 'package:lab1/screens/area_cuadrado_screen.dart';
+import 'package:lab1/screens/per_circ_screen.dart';
 // import 'package:lab1/screens/perimetro_cuadrado_screen.dart';
 // import 'package:lab1/screens/area_triangulo_screen.dart';
 // import 'package:lab1/screens/perimetro_triangulo_screen.dart';
@@ -146,7 +147,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const PerCircScreen()),
+                      MaterialPageRoute(builder: (context) => PerCircScreen()),
                     );
                   },
                   child: const Column(
