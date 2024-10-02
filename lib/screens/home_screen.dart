@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:lab1/screens/area_circulo_screen.dart';
 import 'package:lab1/screens/per_circ_screen.dart';
 import 'package:lab1/screens/area_cuadrado_screen.dart';
-import 'package:lab1/screens/per_cuadro_screen.dart';
 // import 'package:lab1/screens/perimetro_cuadrado_screen.dart';
 // import 'package:lab1/screens/area_triangulo_screen.dart';
 // import 'package:lab1/screens/perimetro_triangulo_screen.dart';
@@ -147,7 +146,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => PerCircScreen()),
+                      MaterialPageRoute(builder: (context) => const PerCircScreen()),
                     );
                   },
                   child: const Column(
@@ -185,6 +184,29 @@ class _HomeScreenState extends State<HomeScreen> {
                       Padding(
                         padding: EdgeInsets.only(top: 8.0),
                         child: Text('Perímetro del ccuadrado'),
+                      ),
+                    ],
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const PerimetroTrianguloScreen()),
+                    );
+                  },
+                  child: const Column(
+                    children: [
+                      Expanded(
+                        child: Image(
+                            height: 200,
+                            width: 200,
+                            image: AssetImage('assets/images/pertri.png')
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 8.0),
+                        child: Text(' Perimetro del triángulo'),
                       ),
                     ],
                   ),
