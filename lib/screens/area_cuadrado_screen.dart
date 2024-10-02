@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 
-class PentagonPerimeter extends StatefulWidget {
+class SquareArea extends StatefulWidget {
 
-  const PentagonPerimeter({super.key});
+  const SquareArea({super.key});
 
   @override
-  State<PentagonPerimeter> createState() => _PentagonPerimeterState();
+  State<SquareArea> createState() => _SquareAreaState();
 
 }
 
-class _PentagonPerimeterState extends State<PentagonPerimeter> {
+class _SquareAreaState extends State<SquareArea> {
   final TextEditingController _sideController = TextEditingController();
-  double _perimeter = 0;
+  double _area = 0;
 
-  void _calculatePerimeter() {
-    double side = double.tryParse(_sideController.text) ?? 0;
+  void _calculateArea() {
+    double side = double.tryParse(_sideController.text.replaceAll(',', '.')) ?? 0;
     setState(() {
-      _perimeter = 5 * side;
+      _area = side * side;
     });
   }
 
@@ -27,7 +27,7 @@ class _PentagonPerimeterState extends State<PentagonPerimeter> {
         backgroundColor:
             const Color.fromARGB(199, 236, 194, 5), //Color de la Barra
         title: const Text(
-          "Perímetro Pentágono",
+          "Área del cuadrado",
           style: TextStyle(
             fontFamily: 'Roboto',
             fontWeight: FontWeight.bold,
@@ -50,20 +50,20 @@ class _PentagonPerimeterState extends State<PentagonPerimeter> {
               controller: _sideController,
               keyboardType: TextInputType.number,
               decoration: const InputDecoration(
-                labelText: "Ingrese la longitud del lado",
+                labelText: "Ingrese la longitud de uno de los lados",
                 border: OutlineInputBorder(),
               ),
             ),
             
             const SizedBox(height: 16),
             ElevatedButton(
-              onPressed: _calculatePerimeter,
-              child: const Text("Calcular Perímetro"),
+              onPressed: _calculateArea,
+              child: const Text("Calcular Área del cuadrado"),
             ),
             
             const SizedBox(height: 16),
             Text(
-              "Perímetro: $_perimeter",
+              "Área: $_area",
               style: const TextStyle(fontSize: 24),
             ),
           ],

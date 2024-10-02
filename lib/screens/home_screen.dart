@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-// import 'package:lab1/screens/area_circulo_screen.dart';
+import 'package:lab1/screens/area_circulo_screen.dart';
 // import 'package:lab1/screens/perimetro_circulo_screen.dart';
-// import 'package:lab1/screens/area_cuadrado_screen.dart';
+import 'package:lab1/screens/area_cuadrado_screen.dart';
 // import 'package:lab1/screens/perimetro_cuadrado_screen.dart';
 // import 'package:lab1/screens/area_triangulo_screen.dart';
 // import 'package:lab1/screens/perimetro_triangulo_screen.dart';
 // import 'package:lab1/screens/area_pentagono_screen.dart';
-// import 'package:lab1/screens/perimetro_pentagono_screen.dart';
+import 'package:lab1/screens/per_penta_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -68,79 +68,79 @@ class _HomeScreenState extends State<HomeScreen> {
               children: <Widget>[
 
               // Image 1
-              // GestureDetector(
-              //   onTap: () {
-              //     Navigator.push(
-              //       context,
-              //       MaterialPageRoute(builder: (context) => const CurrencyConv()),
-              //     );
-              //   },
-              //   child: const Column(
-              //     children: [
-              //       Expanded(
-              //         child: Image(
-              //           height: 200,
-              //           width: 200,
-              //           image: AssetImage('assets/images/currency.png')
-              //         ),
-              //       ),
-              //       Padding(
-              //         padding: EdgeInsets.only(top: 8.0),
-              //         child: Text('Conversor de divisas'),
-              //       ),
-              //     ],
-              //   ),
-              // ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const PentagonPerimeter()),
+                  );
+                },
+                child: const Column(
+                  children: [
+                    Expanded(
+                      child: Image(
+                        height: 200,
+                        width: 200,
+                        image: AssetImage('assets/images/peri_pentagono.png')
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: 8.0),
+                      child: Text('Perímetro de un pentágono'),
+                    ),
+                  ],
+                ),
+              ),
               
               // // Image 2
-              // GestureDetector(
-              //   onTap: () {
-              //     Navigator.push(
-              //       context,
-              //       MaterialPageRoute(builder: (context) => const CalculatorScreen()),
-              //     );
-              //   },
-              //   child: const Column(
-              //     children: [
-              //       Expanded(
-              //         child: Image(
-              //           height: 200,
-              //           width: 200,
-              //           image: AssetImage('assets/images/calculator.png')
-              //         ),
-              //       ),
-              //       Padding(
-              //         padding: EdgeInsets.only(top: 8.0),
-              //         child: Text('Calculadora'),
-              //       ),
-              //     ],
-              //   ),
-              // ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const SquareArea()),
+                  );
+                },
+                child: const Column(
+                  children: [
+                    Expanded(
+                      child: Image(
+                        height: 200,
+                        width: 200,
+                        image: AssetImage('assets/images/area_cuadrado.png')
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: 8.0),
+                      child: Text('Área del cuadrado'),
+                    ),
+                  ],
+                ),
+              ),
 
-              // // Image 3
-              // GestureDetector(
-              //   onTap: () {
-              //     Navigator.push(
-              //       context,
-              //       MaterialPageRoute(builder: (context) => const GradesScreen()),
-              //     );
-              //   },
-              //   child: const Column(
-              //     children: [
-              //       Expanded(
-              //         child: Image(
-              //           height: 200,
-              //           width: 200,
-              //           image: AssetImage('assets/images/grades.png')
-              //         ),
-              //       ),
-              //       Padding(
-              //         padding: EdgeInsets.only(top: 8.0),
-              //         child: Text('Calculadora de nota final'),
-              //       ),
-              //     ],
-              //   ),
-              // ),
+              // Image 3
+               GestureDetector(
+                 onTap: () {
+                   Navigator.push(
+                     context,
+                     MaterialPageRoute(builder: (context) => const AreaCirculoPages()),
+                   );
+                 },
+                 child: const Column(
+                   children: [
+                     Expanded(
+                       child: Image(
+                         height: 200,
+                         width: 200,
+                         image: AssetImage('assets/images/area_circulo.png')
+                       ),
+                     ),
+                     Padding(
+                       padding: EdgeInsets.only(top: 8.0),
+                       child: Text('Área del círculo'),
+                     ),
+                   ],
+                 ),
+               ),
               
               // // Image 4
               // GestureDetector(
