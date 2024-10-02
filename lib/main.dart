@@ -32,7 +32,7 @@ class MainApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
         useMaterial3: true,
       ),
-      home: HomeScreen(),
+      home: const HomeScreen(),
     );
   }
 }
